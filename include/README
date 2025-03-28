@@ -1,0 +1,11 @@
+## Features
+- Fetches real-time weather data using OpenWeatherMap API.
+- Supports daily weather forecasts for specific locations.
+- Adjusts LED colors based on weather conditions:
+  - Thunderstorm: Electric indigo
+  - Rain: Blue
+  - Clear: Orange
+  - Snow: White
+  - Atmosphere: Red
+  - Cloud: Lavender
+  - Default: Rose

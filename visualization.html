@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data Scatter Plot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Weather Data Scatter Plot</h1>
+    <canvas id="weatherChart" width="800" height="400"></canvas>
+
+    <script>
+
+        fetch('weather_data.json')
+            .then(response => response.text())
+            .then(text => {
+                const lines = text.trim().split('\n');
+                const data = lines.map(line => JSON.parse(line));
+                createScatterPlot(data);
+            })
+            .catch(error => console.error('Error loading JSON file:', error));
+
+        function createScatterPlot(jsonData) {
+            const scatterData = jsonData.map(entry => ({
+                x: new Date(entry.received_at).toLocaleTimeString(),
+                y: entry.data.temperature.current - 273.15,
+                weather: entry.data.weather.main,
+                description: entry.data.weather.description
+            }));
+
+            // draw the Chart.js scatter plot
+            const ctx = document.getElementById('weatherChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Temperature vs Time',
+                        data: scatterData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.7)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return `Temperature: ${point.y.toFixed(2)} °C\nWeather: ${point.weather}\nDescription: ${point.description}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'category',
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Temperature (°C)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

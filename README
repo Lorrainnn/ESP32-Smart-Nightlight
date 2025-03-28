@@ -1,0 +1,15 @@
+## Features
+- Fetches real-time weather data using OpenWeatherMap API.
+- Supports daily weather forecasts for specific locations.
+- Adjusts LED colors based on weather conditions:
+  - Thunderstorm: Electric indigo
+  - Rain: Blue
+  - Clear: Orange
+  - Snow: White
+  - Atmosphere: Red
+  - Cloud: Lavender
+  - Default: Rose
+  
+
+
+ssh -i "lab4_cs147.pem" ubuntu@ec2-18-220-203-2.us-east-2.compute.amazonaws.com
