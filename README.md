@@ -49,14 +49,12 @@ Built on the ESP32 platform, the system integrates a PIR motion sensor, a photor
 ## 📽️ Demo Video
 
 [Watch on YouTube](https://www.youtube.com/watch?v=oQc5v1kqj4Y)
+![image](https://github.com/user-attachments/assets/b0873588-d642-4587-9bba-27f80f28e969)
+
 
 ---
 
-## 💻 Source Code
 
-[Download from Google Drive](https://drive.google.com/file/d/1EYV33nU7B0YwT3Fo2on5cT96rMtYt76w/view?usp=sharing)
-
----
 
 ## 🔮 Future Improvements
 
@@ -65,9 +63,16 @@ Built on the ESP32 platform, the system integrates a PIR motion sensor, a photor
 
 ---
 
-## 👥 Team
 
-**Group 8 — “We Promise We’re Not Related”**  
-- Luo, Jixuan (31754916)  
-- Luo, Ron (57585853)
-
+## Features
+- Fetches real-time weather data using OpenWeatherMap API.
+- Supports daily weather forecasts for specific locations.
+- Adjusts LED colors based on weather conditions:
+  - Thunderstorm: Electric indigo
+  - Rain: Blue
+  - Clear: Orange
+  - Snow: White
+  - Atmosphere: Red
+  - Cloud: Lavender
+  - Default: Rose
+  
