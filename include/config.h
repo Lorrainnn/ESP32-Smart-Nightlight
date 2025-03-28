@@ -1,5 +1,5 @@
 //openweather map api
-const char* API_KEY = "908e8687ab7cf88de51bf833aef4cda0";
+const char* API_KEY = "22";
 
 //irvine
 const char* LAT = "33.685909";
